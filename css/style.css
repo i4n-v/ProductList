@@ -199,8 +199,9 @@ footer{
 
 #new-features div{
     flex: 1 1 300px;
-    max-width: 550px;
-    margin: 20px 10px 0px 10px;
+    max-width: 500px;
+    margin: 20px 0px 0px 10px;
+    align-self: flex-end;
 }
 
 #new-features div > button{
@@ -227,10 +228,13 @@ footer{
     height: 90%;
     border: 3px solid #4B9EBF;
     outline: none;
-    font-weight: 600;
-    padding-left: 8px;
-    padding-right: -8px;
+}
+
+#new-features form > input::placeholder{
+    padding-left: 10px;
     color: #73787a;
+    font-weight: 600;
+    font-size: 1.3em;
 }
 
 #new-features:hover form > input{
