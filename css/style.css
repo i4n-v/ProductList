@@ -1,0 +1,229 @@
+
+/* fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@300;400;500;700;800&display=swap');
+
+/* global configuration */
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+header{
+    max-width: 100vw;
+    min-height: 65px;
+    background-color:  #4B9EBF;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* navbar */
+
+.flex-container{
+    display: flex;
+}
+
+#header{
+    max-width: 1260px;
+    margin: auto; 
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#logo{
+    margin: 10px;
+}
+
+#logo a{
+    color: #ffffff;
+    font: italic 800 1.5em 'Arima Madurai', sans-serif;
+    text-shadow:  2px 2px 2px #73787a;
+}
+
+#logo a:hover{
+    transition: 0.5s;
+    color: #124673;
+}
+
+#logo sup{
+    font: italic 800 1.5rem 'Arima Madurai', sans-serif;
+}
+
+#menu{
+    margin-right: 10px;
+    margin: 10px;
+    flex-basis: 200px;
+    height: 35px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#menu div{
+    margin-left: 10px;
+}
+
+#menu div > a{
+    color: #ffffff;
+    padding: 5px;
+}
+
+#menu div > a:hover{
+    transition: 0.5s;
+    color: #124673;
+}
+
+/* main */
+
+
+#main{
+    flex: 1;
+}
+
+/* footer */
+
+footer{
+    max-width: 100vw;
+    min-height: 110px;
+    background-color:  #4B9EBF;
+}
+
+#footer{
+    max-width: 1260px;
+    margin: auto; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer div > p{
+    color: #ffffff;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+#icons{
+    justify-content: space-between;
+    max-width: 250px;
+    margin: auto;
+}
+
+#icons div{
+    margin: 5px;
+    min-width: 23px;
+    min-height: 23px;
+}
+
+#icons div > a > svg:hover{
+    transition: 0.5s;
+    fill: #124673;
+}
+
+/* main content on home */
+
+.apresentation{
+    max-width: 1260px;
+    margin: auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 60px;
+    border-bottom: solid 6px #124673;
+}
+
+.apresentation-content{
+    flex: 2 1 300px;
+    margin: 40px 30px 40px 10px;
+    max-width: 550px;
+}
+
+.apresentation-content  h1{
+    font: 800 2em 'Arima Madurai', sans-serif;
+    color: #124673;
+}
+
+.apresentation-content p{
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #73787a;
+}
+
+.ilustration{
+    flex: 1 1 300px;
+    max-width: 100%;
+    margin: 40px 10px 30px 40px;
+}
+
+.ilustration > svg{
+    max-width: 450px;
+    width: 100%;
+    height: 100%;
+}
+
+/* newsletter */
+
+#new-features{
+    max-width: 1260px;
+    margin: 90px auto;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#new-features p{
+    font: bold 1.5em 'Nunito Sans', sans-serif;
+    color: #73787a;
+    flex: 1 1 300px;
+    max-width: 600px;
+    margin-left: 10px;
+}
+
+#new-features div{
+    flex: 1 1 300px;
+    max-width: 500px;
+    margin: 20px 10px 0px 10px;
+}
+
+#new-features div > button{
+    background-color: #4B9EBF;
+    color: #ffffff;
+    text-transform: uppercase;
+    font: 800 2em 'Arima Madurai', sans-serif;
+    flex: 1 1 300px;
+    cursor: pointer;
+    outline: none;
+}
+
+#new-features:hover div > button{
+    transition: 0.5s;
+    background-color: #124673;
+}
+
+#new-features form{
+    flex: 1 1 300px;]
+}
+
+#new-features form > input{
+    width: 100%;
+    height: 90%;
+    border: 3px solid #4B9EBF;
+    outline: none;
+}
+
+#new-features:hover form > input{
+    border: 3px solid #124673;
+}
+
+@media(max-width: 960px){
+    
+}
