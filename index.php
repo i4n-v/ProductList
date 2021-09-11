@@ -52,7 +52,7 @@
                     <p>Receba as novas atualizações do sistema e fique por dentro de qualquer novidades</p>
                 </div>
 
-                <div class="flex-container">
+                <div class="flex-container register-email">
                     <form action="#">
                         <input type="email" placeholder="Seu e-mail aqui">
                     </form>

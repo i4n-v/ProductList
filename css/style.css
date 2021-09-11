@@ -204,6 +204,10 @@ footer{
     align-self: flex-end;
 }
 
+.register-email{
+    box-shadow: 3px 3px 4px #73787a7c;
+}
+
 #new-features div > button{
     background-color: #4B9EBF;
     color: #ffffff;
@@ -212,6 +216,7 @@ footer{
     flex: 1 1 300px;
     cursor: pointer;
     outline: none;
+    border: none;
 }
 
 #new-features:hover div > button{
@@ -225,16 +230,16 @@ footer{
 
 #new-features form > input{
     width: 100%;
-    height: 90%;
+    height: 88%;
     border: 3px solid #4B9EBF;
     outline: none;
+    color: #73787a;
+    font-weight: 600;
+    font-size: 1.3em;
 }
 
 #new-features form > input::placeholder{
     padding-left: 10px;
-    color: #73787a;
-    font-weight: 600;
-    font-size: 1.3em;
 }
 
 #new-features:hover form > input{
@@ -255,7 +260,7 @@ footer{
     background-color: #ffffff;
     max-width: 1000px;
     width: 100%;
-    max-height: 550px;
+    max-height: 560px;
     height: 100%;
     border-radius: 20px;
     padding: 3px;
@@ -314,11 +319,12 @@ footer{
     padding-left: 8px;
     color: #73787a;
     font-weight: 600;
+    border: 2px solid transparent;
 }
 
 .login-register-form div > input:focus{
     transition: 0.2s;
-    border:2px solid #7AA5BF;
+    border-color: #7AA5BF;
 }
 
 .login-register-form div > Label{
@@ -335,7 +341,7 @@ footer{
 .register-login-layout div > h1{
     font: 800 2em 'Arima Madurai', sans-serif;
     color: #124673;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .btn{
@@ -352,6 +358,7 @@ footer{
     text-transform: uppercase;
 }
 
+
 .btn:hover{
     transition: 0.5s;
     background-color: #124673;
@@ -365,7 +372,7 @@ footer{
 }
 
 .links-redirect p{
-    margin-bottom: 5px;
+    margin: 0px 10px 5px 10px;
 }
 
 .links-redirect a{
@@ -375,4 +382,40 @@ footer{
 .links-redirect a:hover{
     transition: 0.5s;
     color: #124673;
+}
+
+/* validate div */
+
+.validate{
+    width: 95%;
+    max-height: 20px;
+    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
+    font: 1em 'Nunito Sans', sans-serif;
+    color: #124673;
+    margin-bottom: 5px;
+    background-color: rgba(0, 255, 0, 0.199);
+    position: relative;
+}
+
+.validate span{
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.validate span:hover{
+    transition: 0.5s;
+    color: #ffffff;
+}
+
+.success{
+    background-color: rgba(0, 255, 0, 0.199);
+}
+
+.error{
+    background-color: rgba(255, 0, 0, 0.199);
 }

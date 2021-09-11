@@ -7,7 +7,14 @@
     <link rel="shortcut icon" href="../images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <title>Product List</title>
+    <script src="../js/functions.js" defer></script>
 </head>
+<?php
+session_start();
+$sucess = $_SESSION['message']['success'] ?? null;
+$error = $_SESSION['message']['error'] ?? null;
+unset($_SESSION['message']);
+?>
 <body>
     <main id="register-login" class="flex-container">
         <div class="register-login-layout flex-container">
@@ -18,7 +25,19 @@
             <div class="flex-container">
                 <h1>Cadastre-se e aproveite!</h1>
 
-                <form action="#" method="post" class="flex-container login-register-form">
+                <?php if($sucess != null): ?>
+                    <div class="validate success flex-container">
+                        <p><?= $sucess ?></p>
+                        <span onclick="closeValidate()">x</span>
+                    </div>
+                <?php elseif($error != null): ?>
+                    <div class="validate error">
+                        <p><?= $error ?></p>
+                        <span onclick="closeValidate()">x</span>
+                    </div>
+                <?php endif ?>
+
+                <form action="../actions/register.php" method="post" class="flex-container login-register-form">
                     <div class="flex-container">
                         <label for="name">Nome</label>
                         <input type="name" id="name" name="name" placeholder="Digite seu nome" required>
@@ -31,12 +50,12 @@
 
                     <div class="flex-container">
                         <label for="password">Senha</label>
-                        <input type="password" id="password" name="passwd" placeholder="Digite sua senha" required>
+                        <input type="password" id="password" name="passwd" placeholder="Digite sua senha" min="8" required>
                     </div>
 
                     <div class="flex-container">
                         <label for="confirm">Confirmar senha</label>
-                        <input type="password" id="confirm" name="confirm-passwd" placeholder="Confirme sua senha" required>
+                        <input type="password" id="confirm" name="confirm-passwd" placeholder="Confirme sua senha" min="8" required>
                     </div>
 
                     <div>
