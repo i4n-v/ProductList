@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +11,7 @@
 </head>
 <?php
 require_once '../actions/init.php';
+require_once '../dataBase/conectDatabase.php';
 loggedToAcess();
 validateMessage();
 ?>
@@ -28,11 +28,17 @@ validateMessage();
                         <?php require_once '../images/icons/user.svg'; ?>
                     </div>
                     <div id="dropdown">
-                       <ul class="flex-container">
-                            <a href="#"><li>Perfil</li></a>
-                            <a href="dashboard.php"><li>Seus produtos</li></a>
-                            <a href="../actions/logout.php"><li>Sair</li></a>
-                       </ul> 
+                        <ul class="flex-container">
+                            <a href="#">
+                                <li>Perfil</li>
+                            </a>
+                            <a href="dashboard.php">
+                                <li>Seus produtos</li>
+                            </a>
+                            <a href="../actions/logout.php">
+                                <li>Sair</li>
+                            </a>
+                        </ul>
                     </div>
                 </nav>
             </div>
@@ -44,12 +50,12 @@ validateMessage();
                     <a href="add-product-page.php" class="min-btn btn-confirm">Adicionar</a>
                 </div>
                 <div>
-                    <?php if($GLOBALS['success'] != null): ?>
+                    <?php if ($GLOBALS['success'] != null) : ?>
                         <div class="validate success validate-dashboard">
                             <p><?= $GLOBALS['success'] ?></p>
                             <span onclick="closeValidate()">x</span>
                         </div>
-                    <?php elseif($GLOBALS['error'] != null): ?>
+                    <?php elseif ($GLOBALS['error'] != null) : ?>
                         <div class="validate error validate-dashboard">
                             <p><?= $GLOBALS['error'] ?></p>
                             <span onclick="closeValidate()">x</span>
@@ -57,22 +63,46 @@ validateMessage();
                     <?php endif ?>
                 </div>
                 <div class="products-container">
+                    <?php
+                    $query = "SELECT * FROM `PRODUCTS` WHERE (`PROD_USER_ID` = ?)";
+                    $stmt = $pdo->prepare($query);
+                    $stmt->execute([$_SESSION['id']]);
+                    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    ?>
                     <table class="products-table">
                         <thead>
-                            <th>Produto</th>
-                            <th>Descrição</th>
+                            <th>Descrição do produto</th>
                             <th>Quantidade</th>
                             <th>Preço</th>
-                            <th>Ações</th>
+                            <th class="actions-th">Ações</th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>sadasda</td>
-                                <td>asdasda</td>
-                                <td>asdadasd</td>
-                                <td>asdasdaa</td>
-                                <td>asdasdaa</td>
-                            </tr>
+                            <?php foreach ($products as $product): ?>
+                                <tr>
+                                    <td><?= $product['PROD_DESC'] ?></td>
+                                    <td><?= $product['PROD_QUANTITY'] ?></td>
+                                    <td><?= moneyFormat($product['PROD_VALUE'], 2) ?></td>
+                                    <td class="flex-container table-actions">
+                                        <div>
+                                            <a href="#" class="btn-edit"><?php require '../images/icons/edit.svg'; ?></a>
+                                        </div>
+                                        <div>
+                                            <a class="btn-delete"><?php require '../images/icons/trash.svg'; ?></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <div class="modal-delete flex-container">
+                                    <div class="flex-container">
+                                        <div class="flex-container">
+                                            <p>Você tem certeza que quer excluir esse produto?</p>
+                                        </div>
+                                        <div class="flex-container div-btn">
+                                            <a class="min-btn btn-cancel">Não</a>
+                                            <a href="../actions/delete-product.php?product=<?= $product['PROD_ID'] ?>" class="min-btn btn-confirm">Sim</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach ?>
                         </tbody>
                     </table>
                 </div>
@@ -93,7 +123,7 @@ validateMessage();
                         <a href="https://www.instagram.com/i4n_v/"><?php require_once '../images/icons/instagram.svg' ?></a>
                     </div>
                 </div>
-                
+
                 <div>
                     <p>Product List &copy Todos os direitos reservados</p>
                 </div>

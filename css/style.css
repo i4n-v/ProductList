@@ -23,6 +23,10 @@ header{
     background-color:  #4B9EBF;
 }
 
+body{
+    position: relative;
+}
+
 .wrapper{
     display: flex;
     flex-direction: column;
@@ -483,7 +487,7 @@ footer{
     border-radius: 8px;
     background-color: #ccd2d428;
     margin: 20px auto;
-    padding: 10px;
+    padding: 20px 10px;
     box-shadow: 2px 2px 4px #73787a44;
 }
 
@@ -508,15 +512,14 @@ footer{
     font: bold 1.1em 'Nunito Sans', sans-serif;
     border-radius: 8px;
     border-bottom: 2px solid #4b9ebf91;
-    text-align: center;
-    padding: 10px;
+    text-align: left;
 }
 
 .products-table tbody{
-    text-align: center;
+    text-align: left;
     padding-bottom: 5px;
     color: #7e8a8f;
-    font: 1.1em 'Nunito Sans', sans-serif;
+    font: 1em 'Nunito Sans', sans-serif;
 }
 
 .products-table tbody > tr{
@@ -524,8 +527,17 @@ footer{
     border-bottom: 1px solid #7aa5bf63;
 }
 
+.products-table tbody > tr:hover{
+    transition: 0.5s;
+    background-color: #4b9ebf18;
+}
+
 .products-table tbody > tr > td{
     padding: 5px;
+}
+
+.products-table tbody > tr:nth-child(even) {
+       background-color: #4b9ebf18; 
 }
 
 .description-page{
@@ -538,6 +550,104 @@ footer{
     color: #124673;
 }
 
+.validate-dashboard{
+    max-width: 900px;
+    margin: auto;
+}
+
+.div-btn{
+    flex-direction: row !important;
+    justify-content: space-between !important;
+}
+
+.actions-th{
+    text-align: center;
+}
+
+.table-actions div{
+    flex: 1;
+    text-align: center;
+}
+
+.btn-edit{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.btn-edit svg{
+    width: 25px;
+    height: 25px;
+    fill: #6ce04fc2;
+}
+
+.btn-edit svg:hover{
+    transition: 0.5s;
+    fill: #28ca00;
+}
+
+.btn-delete{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.btn-delete svg{
+    width: 25px;
+    height: 25px;
+    fill: rgba(255, 0, 0, 0.527)
+}
+
+.btn-delete svg:hover{
+    transition: 0.5s;
+    fill: rgba(255, 0, 0, 0.733)
+}
+
+/* modal delete */
+
+.modal-delete{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0000001f;
+    top: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-delete div{
+    background-color: #ffffff;
+    max-width: 500px;
+    max-height: 200px;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px #00000009;
+}
+
+.modal-delete div{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-delete div > div{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-delete div > div > p{
+    text-align: center;
+    font: 600 1.1em 'Nunito Sans', sans-serif;
+    color: #7e8a8f;
+}
+
+.modal-delete div > div > a{
+    padding: 10px 40px;
+}
+
 /* add product page */
 
 #add-product-container{
@@ -545,7 +655,7 @@ footer{
     border-radius: 8px;
     background-color: #ccd2d428;
     margin: 20px auto;
-    padding: 10px;
+    padding: 20px 10px;
     box-shadow: 2px 2px 4px #73787a44;
 }
 
@@ -599,16 +709,6 @@ footer{
 #add-product-form div > Label{
     font: 600 1.05em 'Nunito Sans', sans-serif;
     color: #73787a;
-}
-
-.validate-dashboard{
-    max-width: 900px;
-    margin: auto;
-}
-
-.div-btn{
-    flex-direction: row !important;
-    justify-content: space-between;
 }
 
 /* general btn */
