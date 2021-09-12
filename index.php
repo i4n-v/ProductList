@@ -6,9 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <script src="../js/functions.js" defer></script>
     <link rel="stylesheet" href="css/style.css">
     <title>Product List</title>
 </head>
+<?php 
+require_once 'actions/init.php';
+?>
 <body>
     <div class="wrapper">
         <header>
@@ -17,8 +21,22 @@
                     <a href="index.php"><sup>Product</sup> List</a>
                 </div>
                 <nav class="flex-container" id="menu">
-                    <div><a href="views/login-page.php">Entrar</a></div>
-                    <div><a href="views/register-page.php">Registrar-se</a></div>
+                    <?php if(isLogged()): ?>
+                        <div class="flex-container" onclick="togleDropdown()">
+                            <?= userNameView($_SESSION['user']) ?>
+                            <?php require_once 'images/icons/user.svg'; ?>
+                        </div>
+                        <div id="dropdown">
+                            <ul class="flex-container">
+                                <a href="#"><li>Perfil</li></a>
+                                <a href="views/dashboard.php"><li>Seus produtos</li></a>
+                                <a href="../actions/logout.php"><li>Sair</li></a>
+                            </ul> 
+                        </div>    
+                    <?php else: ?>
+                        <div><a href="views/signin-page.php">Entrar</a></div>
+                        <div><a href="views/signup-page.php">Registrar-se</a></div>
+                    <?php endif ?>
                 </nav>
             </div>
         </header>
