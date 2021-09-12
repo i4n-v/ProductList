@@ -69,10 +69,14 @@ header{
     height: 35px;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 #menu div{
     margin-left: 10px;
+    font: bold 1em 'Nunito Sans', sans-serif;
+    color: #ffffff;
+    align-items: flex-end;
 }
 
 #menu div > a{
@@ -85,8 +89,56 @@ header{
     color: #124673;
 }
 
-/* main */
+#menu div > svg{
+    width: 27px;
+    height: 27px;
+    fill: #ffffff;
+    cursor: pointer;
+    margin-left: 5px;
+}
 
+#menu div > svg:hover{
+    transition: 0.5s;
+    fill: #124673;
+}
+
+
+/* dropdown */
+
+#dropdown{
+    position: absolute;
+    width: 200px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 3px 3px 4px #73787a;
+    top: 35px;
+    right: 10px;
+    display: none;
+}
+
+#dropdown ul{
+    flex-direction: column;
+    width: 100%;
+    list-style: none;
+}
+
+#dropdown ul > a > li{
+    display: block;
+    flex: 1;
+    padding: 2px;
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 1px;
+    color: #7e8a8f;
+}
+
+#dropdown ul > a > li:hover{
+    transition: 0.5s;
+    background-color: #124673;
+    color: #ffffff;
+}
+
+/* main */
 
 #main{
     flex: 1;
@@ -391,12 +443,16 @@ footer{
     max-height: 20px;
     padding: 5px;
     border-radius: 8px;
-    text-align: center;
-    font: 1em 'Nunito Sans', sans-serif;
-    color: #124673;
     margin-bottom: 5px;
     background-color: rgba(0, 255, 0, 0.199);
     position: relative;
+}
+
+.validate p{
+    text-align: center;
+    font: 1em 'Nunito Sans', sans-serif;
+    color: #124673;
+    margin: auto;
 }
 
 .validate span{
@@ -418,4 +474,169 @@ footer{
 
 .error{
     background-color: rgba(255, 0, 0, 0.199);
+}
+
+/* dashboard template */
+
+#all-content{
+    max-width: 1260px;
+    border-radius: 8px;
+    background-color: #ccd2d428;
+    margin: 20px auto;
+    padding: 10px;
+    box-shadow: 2px 2px 4px #73787a44;
+}
+
+/* products table */
+
+.products-container{
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 10px 0px 0px 0px;
+}
+
+.products-table{
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+.products-table thead{
+    color: #4B9EBF;
+    background-color: #4b9ebf18;
+    font: bold 1.1em 'Nunito Sans', sans-serif;
+    border-radius: 8px;
+    border-bottom: 2px solid #4b9ebf91;
+    text-align: center;
+    padding: 10px;
+}
+
+.products-table tbody{
+    text-align: center;
+    padding-bottom: 5px;
+    color: #7e8a8f;
+    font: 1.1em 'Nunito Sans', sans-serif;
+}
+
+.products-table tbody > tr{
+    padding: 5px;
+    border-bottom: 1px solid #7aa5bf63;
+}
+
+.products-table tbody > tr > td{
+    padding: 5px;
+}
+
+.description-page{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.description-page h1{
+    font: 600 1.2em 'Nunito Sans', sans-serif;
+    color: #124673;
+}
+
+/* add product page */
+
+#add-product-container{
+    max-width: 1000px;
+    border-radius: 8px;
+    background-color: #ccd2d428;
+    margin: 20px auto;
+    padding: 10px;
+    box-shadow: 2px 2px 4px #73787a44;
+}
+
+#add-product-form{
+    margin-bottom: 10px;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+#add-product-form h1{
+    font: 800 1.5em 'Arima Madurai', sans-serif;
+    color: #124673;
+    text-align: center;
+}
+
+#add-product-form form{
+    width: 100%;
+    min-width: 200px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#add-product-form form > div{
+    max-width: 350px;
+    margin: 15px auto;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#add-product-form form > div > input{
+    width: 100%;
+    height: 32px;
+    outline: none;
+    border: 1px solid #7aa5bf69;
+    box-shadow: 2px 2px 4px #73787a7c;
+    border-radius: 8px;
+    padding-left: 8px;
+    color: #73787a;
+    font-weight: 600;
+    border: 2px solid transparent;
+}
+
+#add-product-form div > input:focus{
+    transition: 0.2s;
+    border-color: #7AA5BF;
+}
+
+#add-product-form div > Label{
+    font: 600 1.05em 'Nunito Sans', sans-serif;
+    color: #73787a;
+}
+
+.validate-dashboard{
+    max-width: 900px;
+    margin: auto;
+}
+
+.div-btn{
+    flex-direction: row !important;
+    justify-content: space-between;
+}
+
+/* general btn */
+
+.min-btn{
+    display: block;
+    padding: 8px 15px;
+    background-color: #4B9EBF;
+    color: #ffffff;
+    border: none;
+    box-shadow: 2px 2px 3px #73787a;
+    border-radius: 6px;
+    font: bold 0.8em 'Nunito Sans', sans-serif;
+    margin: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.min-btn:hover{
+    transition: 0.5s;
+    background-color: #124673;
+}
+
+.btn-cancel{
+    background-color: rgba(255, 0, 0, 0.438);
+}
+
+.btn-cancel:hover{
+    transition: 0.5s;
+    background-color: rgba(255, 0, 0, 0.747);
 }
