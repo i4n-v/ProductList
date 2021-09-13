@@ -28,7 +28,8 @@ loggedToAcess();
                     </div>
                     <div id="dropdown">
                        <ul class="flex-container">
-                            <a href="#"><li>Perfil</li></a>
+                            <a href="profile.php"><li>Perfil</li></a>
+                            <a href="password.php"><li>Alterar senha</li></a>
                             <a href="dashboard.php"><li>Seus produtos</li></a>
                             <a href="../actions/logout.php"><li>Sair</li></a>
                        </ul> 
@@ -37,8 +38,8 @@ loggedToAcess();
             </div>
         </header>
         <main id="main">
-            <div id="add-edit-product-container">
-                <div id="add-edit-product-form">
+            <div class="add-edit-product-container">
+                <div class="add-edit-product-form">
                     <h1>Adicione um novo produto!</h1>
 
                     <form action="../actions/add-product.php" method="POST">

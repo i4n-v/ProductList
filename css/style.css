@@ -651,7 +651,7 @@ footer{
 
 /* add product page */
 
-#add-edit-product-container{
+.add-edit-product-container, #profile-container{
     max-width: 1000px;
     border-radius: 8px;
     background-color: #ccd2d428;
@@ -660,7 +660,8 @@ footer{
     box-shadow: 2px 2px 4px #73787a44;
 }
 
-#add-edit-product-form{
+.add-edit-product-form, #profile-form{
+    flex-direction: column;
     margin-bottom: 10px;
     max-width: 800px;
     margin: auto;
@@ -668,13 +669,13 @@ footer{
     padding: 20px;
 }
 
-#add-edit-product-form h1{
+.add-edit-product-form h1, #profile-form h1{
     font: 800 1.5em 'Arima Madurai', sans-serif;
     color: #124673;
     text-align: center;
 }
 
-#add-edit-product-form form{
+.add-edit-product-form form, #profile-form form{
     width: 100%;
     min-width: 200px;
     flex-direction: column;
@@ -682,14 +683,14 @@ footer{
     align-items: center;
 }
 
-#add-edit-product-form form > div{
+.add-edit-product-form form > div, #profile-form form > div{
     max-width: 350px;
     margin: 15px auto;
     flex-direction: column;
     align-items: flex-start;
 }
 
-#add-edit-product-form form > div > input{
+.add-edit-product-form form > div > input, #profile-form form > div >input{
     width: 100%;
     height: 32px;
     outline: none;
@@ -702,12 +703,12 @@ footer{
     border: 2px solid transparent;
 }
 
-#add-edit-product-form div > input:focus{
+.add-edit-product-form div > input:focus, #profile-form div > input:focus{
     transition: 0.2s;
     border-color: #7AA5BF;
 }
 
-#add-edit-product-form div > Label{
+.add-edit-product-form div > Label, #profile-form div > label{
     font: 600 1.05em 'Nunito Sans', sans-serif;
     color: #73787a;
 }

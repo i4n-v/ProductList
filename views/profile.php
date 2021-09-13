@@ -14,21 +14,16 @@
 require_once '../actions/init.php';
 require_once '../dataBase/conectDatabase.php';
 loggedToAcess();
-
-$prodId = $_GET['product'];
+validateMessage();
 
 try{
-    $query = "SELECT * FROM `PRODUCTS` WHERE (`PROD_ID` = ?)";
+    $query = "SELECT `USER_NAME`, `USER_EMAIL` FROM `USERS` WHERE (`USER_ID` = ?)";
     $stmt = $pdo->prepare($query);
-    $stmt->execute([$prodId]);
-    $product = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->execute([$_SESSION['id']]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 }catch(PDOException $e){
     echo $e;
     exit();
-}
-
-if($product['PROD_USER_ID'] != $_SESSION['id']){
-    redirect('../index.php');
 }
 ?>
 <body>
@@ -55,32 +50,36 @@ if($product['PROD_USER_ID'] != $_SESSION['id']){
             </div>
         </header>
         <main id="main">
-            <div class="add-edit-product-container">
-                <div class="add-edit-product-form">
-                    <h1>Edite seu produto!</h1>
-
-                    <form action="../actions/update-product.php" method="POST">
-                        <input type="hidden" name="prodId" value="<?= $product['PROD_ID'] ?>">
-
+            <div id="profile-container">
+                <div id="profile-form" class="flex-container">
+                    <h1>Atualize seus dados!</h1>
+                    <div>
+                        <?php if ($GLOBALS['success'] != null) : ?>
+                            <div class="validate success validate-dashboard">
+                                <p><?= $GLOBALS['success'] ?></p>
+                                <span onclick="closeValidate()">x</span>
+                            </div>
+                        <?php elseif ($GLOBALS['error'] != null) : ?>
+                            <div class="validate error validate-dashboard">
+                                <p><?= $GLOBALS['error'] ?></p>
+                                <span onclick="closeValidate()">x</span>
+                            </div>
+                        <?php endif ?>
+                    </div>
+                    <form action="../actions/update-profile.php" method="POST">
                         <div class="flex-container">
-                            <label for="desc">Descrição</label>
-                            <input type="text" id="desc" name="desc" value="<?= $product['PROD_DESC'] ?>" placeholder="Descrição do produto"  required>
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" value="<?= $user['USER_NAME'] ?>" placeholder="Seu nome" required>
                         </div>
                         
                         <div class="flex-container">
-                            <label for="quantity">Quantidade</label>
-                            <input type="number" id="quantity" name="quantity" value="<?= $product['PROD_QUANTITY'] ?>" placeholder="Quantidade do produto" required>
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" value="<?= $user['USER_EMAIL'] ?>" placeholder="Seu e-mail" required>
                         </div>
 
-                        <div class="flex-container">
-                            <label for="value">Preço</label>
-                            <input type="number" id="value" name="value" value="<?= number_format($product['PROD_VALUE'], 2) ?>" placeholder="Preço do produto" step="0.01" required>
-                        </div>
-
-                        <div class="flex-container div-btn">
-                            <a href="dashboard.php" class="min-btn btn-cancel">Cancelar</a>
-                            <button class="min-btn btn-confirm" style="padding: 8px 23px;" type="submit">Salvar</button>
-                        </div>             
+                        <div>
+                            <button class="btn" type="submit">Salvar</button>
+                        </div> 
                     </form>
                 </div>
             </div>

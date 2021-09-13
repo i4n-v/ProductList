@@ -28,7 +28,8 @@ require_once 'actions/init.php';
                         </div>
                         <div id="dropdown">
                             <ul class="flex-container">
-                                <a href="#"><li>Perfil</li></a>
+                                <a href="views/profile.php"><li>Perfil</li></a>
+                                <a href="password.php"><li>Alterar senha</li></a>
                                 <a href="views/dashboard.php"><li>Seus produtos</li></a>
                                 <a href="../actions/logout.php"><li>Sair</li></a>
                             </ul> 

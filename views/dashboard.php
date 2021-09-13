@@ -29,12 +29,9 @@ validateMessage();
                     </div>
                     <div id="dropdown">
                         <ul class="flex-container">
-                            <a href="#">
-                                <li>Perfil</li>
-                            </a>
-                            <a href="dashboard.php">
-                                <li>Seus produtos</li>
-                            </a>
+                            <a href="profile.php"><li>Perfil</li></a>
+                            <a href="password.php"><li>Alterar senha</li></a>
+                            <a href="dashboard.php"><li>Seus produtos</li></a>
                             <a href="../actions/logout.php">
                                 <li>Sair</li>
                             </a>
