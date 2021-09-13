@@ -75,7 +75,7 @@ require_once 'actions/init.php';
             <div id="new-features" class="flex-container">
                 <div>
                     <h2>Novidades!</h2>
-                    <p>Receba as novas atualizações do sistema e fique por dentro de qualquer novidades</p>
+                    <p>Receba as novas atualizações do sistema e fique por dentro de qualquer novidade</p>
                 </div>
 
                 <div class="flex-container register-email">
