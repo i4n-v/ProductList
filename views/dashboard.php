@@ -14,7 +14,14 @@ require_once '../actions/init.php';
 require_once '../dataBase/conectDatabase.php';
 loggedToAcess();
 validateMessage();
+
+$query = "SELECT * FROM `PRODUCTS` WHERE (`PROD_USER_ID` = ?)";
+$stmt = $pdo->prepare($query);
+$stmt->execute([$_SESSION['id']]);
+$totProducts = $stmt->rowCount();
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 <body>
     <div class="wrapper">
         <header>
@@ -29,9 +36,15 @@ validateMessage();
                     </div>
                     <div id="dropdown">
                         <ul class="flex-container">
-                            <a href="profile.php"><li>Perfil</li></a>
-                            <a href="password.php"><li>Alterar senha</li></a>
-                            <a href="dashboard.php"><li>Seus produtos</li></a>
+                            <a href="profile.php">
+                                <li>Perfil</li>
+                            </a>
+                            <a href="password.php">
+                                <li>Alterar senha</li>
+                            </a>
+                            <a href="dashboard.php">
+                                <li>Seus produtos</li>
+                            </a>
                             <a href="../actions/logout.php">
                                 <li>Sair</li>
                             </a>
@@ -43,7 +56,7 @@ validateMessage();
         <main id="main">
             <div id="all-content">
                 <div class="description-page flex-container">
-                    <h1>Aqui estão seus produtos:</h1>
+                    <h1><?= $totProducts ?> produtos cadastrados:</h1>
                     <a href="add-product-page.php" class="min-btn btn-confirm">Adicionar</a>
                 </div>
                 <div>
@@ -60,25 +73,21 @@ validateMessage();
                     <?php endif ?>
                 </div>
                 <div class="products-container">
-                    <?php
-                    $query = "SELECT * FROM `PRODUCTS` WHERE (`PROD_USER_ID` = ?)";
-                    $stmt = $pdo->prepare($query);
-                    $stmt->execute([$_SESSION['id']]);
-                    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    ?>
                     <table class="products-table">
                         <thead>
                             <th>Descrição do produto</th>
                             <th>Quantidade</th>
                             <th>Preço</th>
+                            <th>Total</th>
                             <th class="actions-th">Ações</th>
                         </thead>
                         <tbody>
-                            <?php foreach ($products as $product): ?>
+                            <?php foreach ($products as $product) : ?>
                                 <tr>
                                     <td><?= $product['PROD_DESC'] ?></td>
                                     <td><?= $product['PROD_QUANTITY'] ?></td>
-                                    <td><?= moneyFormat($product['PROD_VALUE'], 2) ?></td>
+                                    <td><?= moneyFormat($product['PROD_VALUE']) ?></td>
+                                    <td><?= totalMoney($product['PROD_VALUE'], $product['PROD_QUANTITY']) ?></td>
                                     <td class="flex-container table-actions">
                                         <div>
                                             <a href="update-product-page.php?product=<?= $product['PROD_ID'] ?>" class="btn-edit"><?php require '../images/icons/edit.svg'; ?></a>

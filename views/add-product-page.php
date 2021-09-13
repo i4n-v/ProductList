@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,12 +26,20 @@ loggedToAcess();
                         <?php require_once '../images/icons/user.svg'; ?>
                     </div>
                     <div id="dropdown">
-                       <ul class="flex-container">
-                            <a href="profile.php"><li>Perfil</li></a>
-                            <a href="password.php"><li>Alterar senha</li></a>
-                            <a href="dashboard.php"><li>Seus produtos</li></a>
-                            <a href="../actions/logout.php"><li>Sair</li></a>
-                       </ul> 
+                        <ul class="flex-container">
+                            <a href="profile.php">
+                                <li>Perfil</li>
+                            </a>
+                            <a href="password.php">
+                                <li>Alterar senha</li>
+                            </a>
+                            <a href="dashboard.php">
+                                <li>Seus produtos</li>
+                            </a>
+                            <a href="../actions/logout.php">
+                                <li>Sair</li>
+                            </a>
+                        </ul>
                     </div>
                 </nav>
             </div>
@@ -45,9 +52,9 @@ loggedToAcess();
                     <form action="../actions/add-product.php" method="POST">
                         <div class="flex-container">
                             <label for="desc">Descrição</label>
-                            <input type="text" id="desc" name="desc" placeholder="Descrição do produto"  required>
+                            <input type="text" id="desc" name="desc" placeholder="Descrição do produto" required>
                         </div>
-                        
+
                         <div class="flex-container">
                             <label for="quantity">Quantidade</label>
                             <input type="number" id="quantity" name="quantity" placeholder="Quantidade do produto" required>
@@ -61,7 +68,7 @@ loggedToAcess();
                         <div class="flex-container div-btn">
                             <a href="dashboard.php" class="min-btn btn-cancel">Cancelar</a>
                             <button class="min-btn btn-confirm" type="submit">Adicionar</button>
-                        </div>                
+                        </div>
                     </form>
                 </div>
             </div>
@@ -81,7 +88,7 @@ loggedToAcess();
                         <a href="https://www.instagram.com/i4n_v/" target="_blank"><?php require_once '../images/icons/instagram.svg' ?></a>
                     </div>
                 </div>
-                
+
                 <div>
                     <p>Product List &copy Todos os direitos reservados</p>
                 </div>

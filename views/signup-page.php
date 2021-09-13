@@ -24,12 +24,12 @@ validateMessage();
             <div class="flex-container">
                 <h1>Cadastre-se e aproveite!</h1>
 
-                <?php if($GLOBALS['success'] != null): ?>
+                <?php if ($GLOBALS['success'] != null) : ?>
                     <div class="validate success">
                         <p><?= $GLOBALS['success'] ?></p>
                         <span onclick="closeValidate()">x</span>
                     </div>
-                <?php elseif($GLOBALS['error'] != null): ?>
+                <?php elseif ($GLOBALS['error'] != null) : ?>
                     <div class="validate error">
                         <p><?= $GLOBALS['error'] ?></p>
                         <span onclick="closeValidate()">x</span>

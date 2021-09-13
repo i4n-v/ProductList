@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,17 +16,17 @@ loggedToAcess();
 
 $prodId = $_GET['product'];
 
-try{
+try {
     $query = "SELECT * FROM `PRODUCTS` WHERE (`PROD_ID` = ?)";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$prodId]);
     $product = $stmt->fetch(PDO::FETCH_ASSOC);
-}catch(PDOException $e){
+} catch (PDOException $e) {
     echo $e;
     exit();
 }
 
-if($product['PROD_USER_ID'] != $_SESSION['id']){
+if ($product['PROD_USER_ID'] != $_SESSION['id']) {
     redirect('../index.php');
 }
 ?>
@@ -44,12 +43,20 @@ if($product['PROD_USER_ID'] != $_SESSION['id']){
                         <?php require_once '../images/icons/user.svg'; ?>
                     </div>
                     <div id="dropdown">
-                       <ul class="flex-container">
-                            <a href="profile.php"><li>Perfil</li></a>
-                            <a href="password.php"><li>Alterar senha</li></a>
-                            <a href="dashboard.php"><li>Seus produtos</li></a>
-                            <a href="../actions/logout.php"><li>Sair</li></a>
-                       </ul> 
+                        <ul class="flex-container">
+                            <a href="profile.php">
+                                <li>Perfil</li>
+                            </a>
+                            <a href="password.php">
+                                <li>Alterar senha</li>
+                            </a>
+                            <a href="dashboard.php">
+                                <li>Seus produtos</li>
+                            </a>
+                            <a href="../actions/logout.php">
+                                <li>Sair</li>
+                            </a>
+                        </ul>
                     </div>
                 </nav>
             </div>
@@ -64,9 +71,9 @@ if($product['PROD_USER_ID'] != $_SESSION['id']){
 
                         <div class="flex-container">
                             <label for="desc">Descrição</label>
-                            <input type="text" id="desc" name="desc" value="<?= $product['PROD_DESC'] ?>" placeholder="Descrição do produto"  required>
+                            <input type="text" id="desc" name="desc" value="<?= $product['PROD_DESC'] ?>" placeholder="Descrição do produto" required>
                         </div>
-                        
+
                         <div class="flex-container">
                             <label for="quantity">Quantidade</label>
                             <input type="number" id="quantity" name="quantity" value="<?= $product['PROD_QUANTITY'] ?>" placeholder="Quantidade do produto" required>
@@ -80,7 +87,7 @@ if($product['PROD_USER_ID'] != $_SESSION['id']){
                         <div class="flex-container div-btn">
                             <a href="dashboard.php" class="min-btn btn-cancel">Cancelar</a>
                             <button class="min-btn btn-confirm" style="padding: 8px 23px;" type="submit">Salvar</button>
-                        </div>             
+                        </div>
                     </form>
                 </div>
             </div>
@@ -100,7 +107,7 @@ if($product['PROD_USER_ID'] != $_SESSION['id']){
                         <a href="https://www.instagram.com/i4n_v/" target="_blank"><?php require_once '../images/icons/instagram.svg' ?></a>
                     </div>
                 </div>
-                
+
                 <div>
                     <p>Product List &copy Todos os direitos reservados</p>
                 </div>

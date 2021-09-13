@@ -37,4 +37,9 @@ function userNameView($name){
 function moneyFormat($value){
   return 'R$ ' . str_replace('.', ',',number_format($value, 2));
 }
+
+function totalMoney($value, $quantity){
+  $total = $value * $quantity;
+  return 'R$ ' . str_replace('.', ',',number_format($total, 2));
+}
 ?>
