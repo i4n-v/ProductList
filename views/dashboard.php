@@ -84,25 +84,25 @@ validateMessage();
                                     <td><?= moneyFormat($product['PROD_VALUE'], 2) ?></td>
                                     <td class="flex-container table-actions">
                                         <div>
-                                            <a href="#" class="btn-edit"><?php require '../images/icons/edit.svg'; ?></a>
+                                            <a href="update-product-page.php?product=<?= $product['PROD_ID'] ?>" class="btn-edit"><?php require '../images/icons/edit.svg'; ?></a>
                                         </div>
                                         <div>
-                                            <a class="btn-delete"><?php require '../images/icons/trash.svg'; ?></a>
+                                            <a class="btn-delete" onclick="togleModalDelete(<?= $product['PROD_ID'] ?>)"><?php require '../images/icons/trash.svg'; ?></a>
                                         </div>
                                     </td>
                                 </tr>
-                                <div class="modal-delete flex-container">
+                            <?php endforeach ?>
+                            <div class="modal-delete flex-container">
+                                <div class="flex-container">
                                     <div class="flex-container">
-                                        <div class="flex-container">
-                                            <p>Você tem certeza que quer excluir esse produto?</p>
-                                        </div>
-                                        <div class="flex-container div-btn">
-                                            <a class="min-btn btn-cancel">Não</a>
-                                            <a href="../actions/delete-product.php?product=<?= $product['PROD_ID'] ?>" class="min-btn btn-confirm">Sim</a>
-                                        </div>
+                                        <p>Você tem certeza que deseja excluir esse produto?</p>
+                                    </div>
+                                    <div class="flex-container div-btn">
+                                        <a class="min-btn btn-cancel" onclick="togleModalDelete()">Não</a>
+                                        <a href="#" class="min-btn btn-confirm" id="url">Sim</a>
                                     </div>
                                 </div>
-                            <?php endforeach ?>
+                            </div>
                         </tbody>
                     </table>
                 </div>
@@ -112,15 +112,15 @@ validateMessage();
             <div id="footer">
                 <div id="icons" class="flex-container">
                     <div>
-                        <a href="https://github.com/i4n-v"><?php require_once '../images/icons/github.svg' ?></a>
+                        <a href="https://github.com/i4n-v" target="_blank"><?php require_once '../images/icons/github.svg' ?></a>
                     </div>
 
                     <div>
-                        <a href="https://www.linkedin.com/in/i4n-v/"><?php require_once '../images/icons/linkedin.svg' ?></a>
+                        <a href="https://www.linkedin.com/in/i4n-v/" target="_blank"><?php require_once '../images/icons/linkedin.svg' ?></a>
                     </div>
 
                     <div>
-                        <a href="https://www.instagram.com/i4n_v/"><?php require_once '../images/icons/instagram.svg' ?></a>
+                        <a href="https://www.instagram.com/i4n_v/" target="_blank"><?php require_once '../images/icons/instagram.svg' ?></a>
                     </div>
                 </div>
 

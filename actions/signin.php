@@ -6,10 +6,10 @@ $email = trim($_POST['email']);
 $passwd = sha1($_POST['passwd']);
 
 try{
-$query = "SELECT * FROM `USERS` WHERE (`USER_EMAIL` = ? AND `USER_PASSWORD` = ?)";
-$stmt = $pdo->prepare($query);
-$stmt->execute([$email, $passwd]);
-$userData = $stmt->fetch(PDO::FETCH_ASSOC);
+    $query = "SELECT * FROM `USERS` WHERE (`USER_EMAIL` = ? AND `USER_PASSWORD` = ?)";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$email, $passwd]);
+    $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 }catch(PDOException $e){
     echo $e;
     exit();

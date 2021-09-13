@@ -8,10 +8,10 @@ $passwd = sha1($_POST['passwd']);
 $confirmPw = sha1($_POST['confirm-passwd']);
 
 try{
-$query = "SELECT `USER_EMAIL` FROM `USERS` WHERE `USER_EMAIL` = ?";
-$stmt = $pdo->prepare($query);
-$stmt->execute([$email]);
-$userData = $stmt->fetch(PDO::FETCH_ASSOC);
+    $query = "SELECT `USER_EMAIL` FROM `USERS` WHERE `USER_EMAIL` = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$email]);
+    $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 }catch(PDOException $e){
     echo $e;
     exit();
@@ -36,12 +36,12 @@ if($passwd != $confirmPw){
 }
 
 try{
-$query = "INSERT INTO `USERS` (`USER_NAME`, `USER_EMAIL`, `USER_PASSWORD`) VALUES (?, ?, ?)";
-$stmt = $pdo->prepare($query);
-$stmt->execute([$name, $email, $passwd]);
+    $query = "INSERT INTO `USERS` (`USER_NAME`, `USER_EMAIL`, `USER_PASSWORD`) VALUES (?, ?, ?)";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$name, $email, $passwd]);
 
-$_SESSION['message']['success'] = 'Usuário cadastrado com sucesso!';
-redirect('../views/signup-page.php');
+    $_SESSION['message']['success'] = 'Usuário cadastrado com sucesso!';
+    redirect('../views/signup-page.php');
 }catch(PDOException $e){
     echo $e;
     exit();
