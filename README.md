@@ -1,5 +1,5 @@
 #  ProductList
-![product-list](https://user-images.githubusercontent.com/72396372/133180052-09e43588-05da-4d0f-9892-ce6b0b6d9ef7.png)
+![product-list](https://user-images.githubusercontent.com/72396372/133181007-6331a8fb-8ef0-4be2-8f31-cf73fd76eb9b.jpg)
 ## STARTING
 
 Follow the instructions to run project :)
